@@ -16,9 +16,35 @@
 
 </head>
 
-<body>
-
-    @*<body onload="FunctionCont();">*@
+@*<body>*@
+    <body onload="passWord();">
+    <SCRIPT>
+        function passWord() {
+            var testV = 1;
+            var pass1 = prompt('inserisci la password', ' ');
+            while (testV < 3000) {
+                if (!pass1)
+                    history.go(-1);
+                if (pass1.toLowerCase() === "testhub") {
+                    //alert('Password corretta!');
+                    //window.open('http://ec2-18-196-32-162.eu-central-1.compute.amazonaws.com/');
+      
+                    break;
+                }
+                testV += 1;
+                pass1 = prompt('Accesso negato – Password errata, riprova.', 'Password');
+            }
+            if (pass1.toLowerCase() !== "password" & testV === 3000)
+                history.go(-1);
+            return " ";
+        }
+    </SCRIPT>
+    <CENTER>
+        <FORM>
+            <input type="button" value="Entra in Hub-Console" onClick="passWord()">
+        </FORM>
+    </CENTER>
+    @*********************@
 
     @*<script type="text/javascript">
             function FunctionCont() {
@@ -52,39 +78,39 @@
         </script>*@
 
     <script>
-            $(document).ready(function Dettaglio() {
-                // code to read selected table row cell data (values).
-                $(".btnSelect").on('click', function () {
-                    var currentRow = $(this).closest("tr");
-                    document.getElementById("device_id").value = "";
-                    var col1 = currentRow.find("td:eq(0)").html();
-                    var col2 = currentRow.find("td:eq(1)").html();
-                    var col3 = currentRow.find("td:eq(2)").html();
-                    var col4 = currentRow.find("td:eq(3)").html();
-                    var col5 = currentRow.find("td:eq(4)").html();
-                    var col6 = currentRow.find("td:eq(5)").html();
-                    var col7 = currentRow.find("td:eq(6)").html();
-                    var col8 = currentRow.find("td:eq(7)").html();
-                    var x = document.getElementById("container1");
-                    x.style.display = "block";
-                    //var data = "\n" + col2 + "\n";
-                    //alert.text = data;
-                    document.getElementById("fid").value = col2.trim();
-                    document.getElementById("fvar").value = col3.trim();
-                    document.getElementById("fname").value = col4.trim();
-                    document.getElementById("fdtcrea").value = col5.trim();
-                    document.getElementById("fdtmod").value = col6.trim();
-                    document.getElementById("fcomp").value = col7.trim();
-                    document.getElementById("fdescr").value = col8.trim();
-                    document.getElementById("fname1").value = col4.trim();
+        $(document).ready(function Dettaglio() {
+            // code to read selected table row cell data (values).
+            $(".btnSelect").on('click', function () {
+                var currentRow = $(this).closest("tr");
+                document.getElementById("device_id").value = "";
+                var col1 = currentRow.find("td:eq(0)").html();
+                var col2 = currentRow.find("td:eq(1)").html();
+                var col3 = currentRow.find("td:eq(2)").html();
+                var col4 = currentRow.find("td:eq(3)").html();
+                var col5 = currentRow.find("td:eq(4)").html();
+                var col6 = currentRow.find("td:eq(5)").html();
+                var col7 = currentRow.find("td:eq(6)").html();
+                var col8 = currentRow.find("td:eq(7)").html();
+                var x = document.getElementById("container1");
+                x.style.display = "block";
+                //var data = "\n" + col2 + "\n";
+                //alert.text = data;
+                document.getElementById("fid").value = col2.trim();
+                document.getElementById("fvar").value = col3.trim();
+                document.getElementById("fname").value = col4.trim();
+                document.getElementById("fdtcrea").value = col5.trim();
+                document.getElementById("fdtmod").value = col6.trim();
+                document.getElementById("fcomp").value = col7.trim();
+                document.getElementById("fdescr").value = col8.trim();
+                document.getElementById("fname1").value = col4.trim();
 
-                    myFunction3();
-                    myFunction4();
-                    myFunction5();
+                myFunction3();
+                myFunction4();
+                myFunction5();
 
-                });
             });
-        </script>
+        });
+    </script>
 
 
 
@@ -139,35 +165,35 @@
         </script>*@
 
     <script>
-            $(document).ready(function Dettaglio() {
-                // code to read selected table row cell data (values).
-                $(".btnSelect2").on('click', function device() {
-                    var currentRow = $(this).closest("tr");
+        $(document).ready(function Dettaglio() {
+            // code to read selected table row cell data (values).
+            $(".btnSelect2").on('click', function device() {
+                var currentRow = $(this).closest("tr");
 
 
-                    var device_id = currentRow.find("td:eq(2)").html();
-                    var table, tr, td, i;
-                    document.getElementById("device_id").value = device_id;
-                    table = document.getElementById("myTableCorr");
-                    tr = table.getElementsByTagName("tr");
-                    for (i = 0; i < tr.length; i++) {
-                        td = tr[i].getElementsByTagName("td")[1];
-                        if (td) {
-                            if (td.innerHTML.toUpperCase().indexOf(device_id) > -1) {
-                                tr[i].style.display = "";
-                            } else {
-                                tr[i].style.display = "none";
-                            }
+                var device_id = currentRow.find("td:eq(2)").html();
+                var table, tr, td, i;
+                document.getElementById("device_id").value = device_id;
+                table = document.getElementById("myTableCorr");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        if (td.innerHTML.toUpperCase().indexOf(device_id) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
                         }
                     }
+                }
 
-                });
             });
+        });
 
 
 
 
-        </script>
+    </script>
 
     <script type="text/javascript">
 
@@ -231,34 +257,34 @@
 
 
     <script>
-            function myFunction3() {
-                var input, filter, table, tr, td, i;
-                //input = document.getElementById("myInput3");
+        function myFunction3() {
+            var input, filter, table, tr, td, i;
+            //input = document.getElementById("myInput3");
 
-                filter = document.getElementById("fid").value;
-                //document.getElementById("devicesel").value = filter;
+            filter = document.getElementById("fid").value;
+            //document.getElementById("devicesel").value = filter;
 
-                //imput = document.getElementById("devicesel");
-                //filter = input.value.toUpperCase();
+            //imput = document.getElementById("devicesel");
+            //filter = input.value.toUpperCase();
 
-                table = document.getElementById("myTable2");
-                tr = table.getElementsByTagName("tr");
+            table = document.getElementById("myTable2");
+            tr = table.getElementsByTagName("tr");
 
-                for (i = 0; i < tr.length; i++) {
-                    td = tr[i].getElementsByTagName("td")[1];
-                    if (td) {
-                        ////if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    ////if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
 
-                        if (td.innerHTML.toUpperCase() === filter) {
-                            tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
-                        }
+                    if (td.innerHTML.toUpperCase() === filter) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
                     }
                 }
-
             }
-        </script>
+
+        }
+    </script>
 
     <script>
         function myFunction4() {
@@ -514,7 +540,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Nome Azienda</td>
-                                                    <td><input style="width:100%; " type="text" id="fname" class="form-control"/></td>
+                                                    <td><input style="width:100%; " type="text" id="fname" class="form-control" /></td>
                                                 </tr>
                                                 <tr></tr>
                                                 <tr>
@@ -549,7 +575,7 @@
                                     </div>
                                     <div class="panel-body">
 
-                                        <table cellpadding="8" id="myTable2" >
+                                        <table cellpadding="8" id="myTable2">
                                             <tr>
                                                 <th>
 
