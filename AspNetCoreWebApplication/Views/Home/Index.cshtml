@@ -2,8 +2,12 @@
     ViewData["Title"] = "HUB-Console";
 }
 
-<script src="~/Scripts/jquery-3.3.1.js"></script>
-<script src="~/Scripts/jquery.dataTables.min.js"></script>
+
+@*<script src="~/js/jquery.dataTables.min.js"></script>*@
+<script src="~/js/jquery-3.3.1.js"></script>
+
+
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +51,7 @@
             }
         </script>*@
 
-    @*<script>
+    <script>
             $(document).ready(function Dettaglio() {
                 // code to read selected table row cell data (values).
                 $(".btnSelect").on('click', function () {
@@ -80,7 +84,7 @@
 
                 });
             });
-        </script>*@
+        </script>
 
 
 
@@ -134,7 +138,7 @@
             });
         </script>*@
 
-    @*<script>
+    <script>
             $(document).ready(function Dettaglio() {
                 // code to read selected table row cell data (values).
                 $(".btnSelect2").on('click', function device() {
@@ -163,7 +167,7 @@
 
 
 
-        </script>*@
+        </script>
 
     <script type="text/javascript">
 
@@ -226,7 +230,7 @@
     </script>
 
 
-    @*<script>
+    <script>
             function myFunction3() {
                 var input, filter, table, tr, td, i;
                 //input = document.getElementById("myInput3");
@@ -254,7 +258,7 @@
                 }
 
             }
-        </script>*@
+        </script>
 
     <script>
         function myFunction4() {
@@ -510,7 +514,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Nome Azienda</td>
-                                                    <td><input style="width:100%; " type="text" id="fname" /></td>
+                                                    <td><input style="width:100%; " type="text" id="fname" class="form-control"/></td>
                                                 </tr>
                                                 <tr></tr>
                                                 <tr>
@@ -545,7 +549,7 @@
                                     </div>
                                     <div class="panel-body">
 
-                                        <table cellpadding="8" id="myTable2" class="table-striped">
+                                        <table cellpadding="8" id="myTable2" >
                                             <tr>
                                                 <th>
 
