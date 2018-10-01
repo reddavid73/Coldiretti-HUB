@@ -17,7 +17,7 @@
 </head>
 
 @*<body>*@
-    <body onload="passWord();">
+    <body visibility="hidden" onload="passWord();">
 
     @*<CENTER>
         <FORM>
@@ -27,6 +27,7 @@
     <SCRIPT>
         function passWord() {
             var testV = 1;
+
             var pass1 = prompt('inserisci la password', ' ');
             while (testV < 3000) {
                 if (!pass1)
@@ -34,8 +35,7 @@
                 if (pass1.toLowerCase() === "testhub") {
                     //alert('Password corretta!');
                     //window.open('http://ec2-18-196-32-162.eu-central-1.compute.amazonaws.com/');
-
-                    break;
+                     break;
                 }
                 testV += 1;
                 pass1 = prompt('Accesso negato – Password errata, riprova.', 'Password');
@@ -439,7 +439,7 @@
 
     @*TABELLA*@
     <div class="panel panel-primary">
-        <table cellpadding="8" id="myTable">
+        <table style="visibility:hidden;" cellpadding="8" id="myTable">
             <tr>
                 <th></th>
                 <th>id</th>
