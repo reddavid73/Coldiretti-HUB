@@ -1,48 +1,100 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>@ViewData["Title"]</title>
-    <meta name="description" content="" />
-    <link href="~/css/styles.css" rel="stylesheet">
-    <link href="~/css/gradients.css" rel="stylesheet">
-    <link href="~/css/site.css" rel="stylesheet" />
-    <link href="~/css/site.min.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Console - HUB</title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
 </head>
-
-<body class="">
-    <div class="wrapper">
-        @*<header>
-                <nav class="website-nav">
-                    <ul>
-                        <li><a class="home-link" href="https://aws.amazon.com/">Home</a></li>
-                        <li><a href="https://aws.amazon.com/what-is-cloud-computing/">About</a></li>
-                        <li><a href="https://aws.amazon.com/solutions/">Services</a></li>
-                        <li><a href="https://aws.amazon.com/contact-us/">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>*@
-        <div class="panel-success" style="background-color:#d8d1d1;">
-
-            <div class="jumbotron">
-                @RenderBody()
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Console - HUB", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("S3 Storage", "Index", "Bucket")</li>
 
-
+                </ul>
+            </div>
         </div>
+    </div>
 
+
+    <div id="header">
+        <ul>
+            <li><a href="#" class="active">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <li><a href="#">Link 4</a></li>
+            <li><a href="#">Link 5</a></li>
+
+        </ul>
+        <p id="layoutdims">Link to : <a href="Coldiretti">Link to:</a> | <a href="">Link to:</a> | <strong>Link to:</strong></p>
+    </div>
+    <div class="colmask leftmenu">
+        <div class="colleft">
+            <div class="col1">
+                <!-- Column 1 start -->
+                <!-- CONTENT -->
+
+                <div class="container body-content">
+                    @RenderBody()
+                    <hr />
+
+                </div>
+
+
+                @RenderSection("scripts", required: false)
+
+
+                <!-- CONTENT end -->
+            </div>
+            <div class="col2">
+
+                <!-- LEFT SIDE COLUMN start -->
+                <div id="ads">
+                    <img src="~/img/146866205248198.jpg" width="120" border="0" height="100 alt="LOGO" />
+                </div>
+
+
+                <div class="vertical-menu">
+
+                    <a href="#" class="active">Home</a>
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                    <a href="#">Link 4</a>
+
+                </div>
+
+                <!-- LEFT SIDE COLUMN end -->
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div id="footer">
+
+
+        <p>&copy; @DateTime.Now.Year - HUB - Console</p>
 
     </div>
 
-    <footer>
-        <p class="footer">
-            2018 Hub-Console Coldiretti
-            @*<a href="https://aws.amazon.com/careers/devtools-jobs/">♥</a> in Seattle.*@
-        </p>
-    </footer>
-
-    <script src="js/set-background.js"></script>
 </body>
-
 </html>
+
+
