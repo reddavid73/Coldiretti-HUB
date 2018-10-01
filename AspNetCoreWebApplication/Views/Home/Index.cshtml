@@ -1,8 +1,952 @@
 ﻿@{
-    ViewData["Title"] = "Example app";
+    ViewData["Title"] = "HUB-Console";
 }
-<a class="twitter-link" href="http://twitter.com/home/?status=I just hosted a website on AWS!"><img src="img/tweet.svg" /></a>
-<div class="text">
-    <h1>Congratulations!</h1>
-    <h2>@ViewData["Message"]</h2>
-</div>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/css/styles.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+
+    @*<body onload="FunctionCont();">*@
+
+    @*<script type="text/javascript">
+            function FunctionCont() {
+                var x = document.getElementById("myTable").rows.length;
+                document.getElementById("conta").innerHTML = "Sono Presenti " + x + " Aziende";
+
+
+                ////table color if non active
+
+                //var table = document.getElementsByTagName("myTable")[0];
+                //var tbody = table.getElementsByTagName("tbody")[0];
+                //tbody.onclick = function (e) {
+                //    e = e || window.event;
+                //    var data = [];
+                //    var target = e.srcElement || e.target;
+                //    while (target && target.nodeName !== "TR") {
+                //        target = target.parentNode;
+                //    }
+                //    if (target) {
+                //        var cells = target.getElementsByTagName("td");
+                //        for (var i = 0; i < cells.length; i++) {
+                //            data.push(cells[i].innerHTML);
+                //        }
+                //    }
+                //    alert(data);
+                //};
+
+
+
+            }
+        </script>*@
+
+    @*<script>
+            $(document).ready(function Dettaglio() {
+                // code to read selected table row cell data (values).
+                $(".btnSelect").on('click', function () {
+                    var currentRow = $(this).closest("tr");
+                    document.getElementById("device_id").value = "";
+                    var col1 = currentRow.find("td:eq(0)").html();
+                    var col2 = currentRow.find("td:eq(1)").html();
+                    var col3 = currentRow.find("td:eq(2)").html();
+                    var col4 = currentRow.find("td:eq(3)").html();
+                    var col5 = currentRow.find("td:eq(4)").html();
+                    var col6 = currentRow.find("td:eq(5)").html();
+                    var col7 = currentRow.find("td:eq(6)").html();
+                    var col8 = currentRow.find("td:eq(7)").html();
+                    var x = document.getElementById("container1");
+                    x.style.display = "block";
+                    //var data = "\n" + col2 + "\n";
+                    //alert.text = data;
+                    document.getElementById("fid").value = col2.trim();
+                    document.getElementById("fvar").value = col3.trim();
+                    document.getElementById("fname").value = col4.trim();
+                    document.getElementById("fdtcrea").value = col5.trim();
+                    document.getElementById("fdtmod").value = col6.trim();
+                    document.getElementById("fcomp").value = col7.trim();
+                    document.getElementById("fdescr").value = col8.trim();
+                    document.getElementById("fname1").value = col4.trim();
+
+                    myFunction3();
+                    myFunction4();
+                    myFunction5();
+
+                });
+            });
+        </script>*@
+
+
+
+
+    @*<script>
+            $(document).ready(function Dettaglio() {
+                // code to read selected table row cell data (values).
+                $(".btnSelect").on('click', function () {
+
+                    var currentRow = $(this).closest("tr");
+                    var col1 = currentRow.find("td:eq(0)").html();
+                    var col2 = currentRow.find("td:eq(1)").html();
+                    var col3 = currentRow.find("td:eq(2)").html();
+                    var col4 = currentRow.find("td:eq(3)").html();
+                    var col5 = currentRow.find("td:eq(4)").html();
+                    var col6 = currentRow.find("td:eq(5)").html();
+                    var col7 = currentRow.find("td:eq(6)").html();
+                    var col8 = currentRow.find("td:eq(7)").html();
+
+                    //var data = "\n" + col2 + "\n";
+                    //alert.text = data;
+                    //var y = document.getElementById("container2");
+
+                    var x = document.getElementById("container1");
+                    if (x.style.display === "none") {
+                        //if (document.getElementById("fvar").value === "") {
+                        x.style.display = "block";
+
+                        document.getElementById("fid").value = col2.trim();
+                        document.getElementById("fvar").value = col3.trim();
+                        document.getElementById("fname").value = col4.trim();
+                        document.getElementById("fdtcrea").value = col5.trim();
+                        document.getElementById("fdtmod").value = col6.trim();
+                        document.getElementById("fcomp").value = col7.trim();
+                        document.getElementById("fdescr").value = col8.trim();
+                        document.getElementById("fname1").value = col4.trim();
+
+                        myFunction3();
+                        myFunction4();
+                        myFunction5();
+                        //    //ContaDevice();
+                        myFunction8();
+
+
+
+                    }
+
+
+
+                });
+            });
+        </script>*@
+
+    @*<script>
+            $(document).ready(function Dettaglio() {
+                // code to read selected table row cell data (values).
+                $(".btnSelect2").on('click', function device() {
+                    var currentRow = $(this).closest("tr");
+
+
+                    var device_id = currentRow.find("td:eq(2)").html();
+                    var table, tr, td, i;
+                    document.getElementById("device_id").value = device_id;
+                    table = document.getElementById("myTableCorr");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 0; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td")[1];
+                        if (td) {
+                            if (td.innerHTML.toUpperCase().indexOf(device_id) > -1) {
+                                tr[i].style.display = "";
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+                        }
+                    }
+
+                });
+            });
+
+
+
+
+        </script>*@
+
+    <script type="text/javascript">
+
+        function ContaDevice() {
+            var x = document.getElementById("myTable2").rows.length;
+            document.getElementById("contDev").innerHTML = "Trovati " + x + " Device";
+        }
+    </script>
+
+    <script>
+
+        function getComboA(selectObject) {
+            var value = selectObject.value;
+        }
+
+    </script>
+
+
+
+
+    @*funzione ricerca INIZIO *@
+    <script>
+
+        function myFunction() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        function myFunction2() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput2");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[3];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+
+    @*<script>
+            function myFunction3() {
+                var input, filter, table, tr, td, i;
+                //input = document.getElementById("myInput3");
+
+                filter = document.getElementById("fid").value;
+                //document.getElementById("devicesel").value = filter;
+
+                //imput = document.getElementById("devicesel");
+                //filter = input.value.toUpperCase();
+
+                table = document.getElementById("myTable2");
+                tr = table.getElementsByTagName("tr");
+
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        ////if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+
+                        if (td.innerHTML.toUpperCase() === filter) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+
+            }
+        </script>*@
+
+    <script>
+        function myFunction4() {
+            var input, filter, table, tr, td, i;
+            //input = document.getElementById("myInput3");
+
+            filter = document.getElementById("fid").value;
+            //filter = document.getElementById("myInput5").value;
+
+            table = document.getElementById("myTable3");
+            tr = table.getElementsByTagName("tr");
+
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    ////if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+
+                    if (td.innerHTML.toUpperCase() === filter) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        function myFunction5() {
+            var input, filter, table, tr, td, i;
+            //input = document.getElementById("myInput3");
+
+            filter = document.getElementById("fvar").value;
+            //filter = document.getElementById("myInput5").value;
+
+            table = document.getElementById("myTable4");
+            tr = table.getElementsByTagName("tr");
+
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[5];
+                if (td) {
+                    ////if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+
+                    if (td.innerHTML.toUpperCase() === filter) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+    @*<script>
+            $(".close-icon").on("click", function () {
+                $(this).closest(".card").fadeOut();
+            }
+        </script>*@
+
+    @*<script>
+
+                $(document)(".open-button").on("click", function () {
+                    $(this).closest('.collapse-group').find('.collapse').collapse('show');
+                });
+
+                $(".close-button").on("click", function () {
+                    $(this).closest('.collapse-group').find('.collapse').collapse('hide');
+                });
+
+        </script>*@
+
+
+    @*<script>
+            $(document).on('click', '.panel-heading span.clickable', function (e) {
+                var $this = $(this);
+                if (!$this.hasClass('panel-collapsed')) {
+                    $this.parents('.panel').find('.panel-body').slideUp();
+                    $this.addClass('panel-collapsed');
+                    $this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+                } else {
+                    $this.parents('.panel').find('.panel-body').slideDown();
+                    $this.removeClass('panel-collapsed');
+                    $this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+                }
+            });
+
+        </script>*@
+    <script>
+        function myFunction8() {
+            var x = document.getElementById("container1");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        function myFunction9() {
+            var x = document.getElementById("container2");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+
+
+
+    @*<div class="jumbotron">*@
+
+    <h2>HUB Console - Lista Aziende</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4-HUB">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Panello Ricerca : <imput type="text" id="conta"></h3>
+                        <span class="pull-right clickable close-icon"><i class="fa fa-times"></i></span>
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                    </div>
+                    <div class="panel-body">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for vat_number.." title="Type in a vat_number">
+                        <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for nome Azienda.." title="Type in a business_name">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    @*funzione ricerca FINE *@
+
+    @*fine paging*@
+
+    <p style="color:orangered;font-size:medium">@TempData["Error"]</p>
+    <p>
+        @*@Html.ActionLink("Create new Bucket", "Create")
+            </p>
+            <p>*@
+        @*@Html.ActionLink("View S3 Objects", "Index", "Upload")*@
+    </p>
+
+    @*TABELLA*@
+    <div class="panel panel-primary">
+        <table cellpadding="8" id="myTable">
+            <tr>
+                <th></th>
+                <th>id</th>
+                <th>vat_number</th>
+                <th>business_name</th>
+                <th>created_date</th>
+                @*<th>last_modified_date</th>*@
+                <th>description</th>
+                <th>activation_status</th>
+                <th>stats_hub_activation_status</th>
+                @*<th>stats_hub_activation_message</th>*@
+
+            </tr>
+            <tbody>
+                <tr>
+                    <td>
+                        <button class="btnSelect" type="button"></button>
+                    </td>
+                    <td>707</td>
+                    <td>00698810256</td>
+                    <td>ACQUIS BIANCA</td>
+                    <td>2018-04-23 10:29:21</td>
+                    @*<td>2018-04-23 10:29:23</td>*@
+                    @*<td>p6CS9Kdui3jY9rCAmblU8TYz/7E37ZsR3J7ODOQ8o2lfojl6xa2nUy50z/ADLZtb</td>*@
+
+                    <td>COMPANY</td>
+                    @*<td>Attivata da Lynfa</td>
+                        <td>CQSBNC46H44A757K</td>
+                        <td>8741</td>*@
+
+                    <td>ACTIVATED</td>
+                    <td>ACTIVATED</td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btnSelect" type="button"></button>
+                    </td>
+                    <td>794</td>
+                    <td>04141414141</td>
+                    <td>AZIENDA AGRICOLA ROSSO ARANCIO S.S.</td>
+                    <td>2018-07-09 14:24:32</td>
+                    @*<td>2018-07-09 14:24:33</td>*@
+                    @*<td>T21rUuQj7h7Rq42v0L8Zgnv9LQe7J0CRP5G6FCdkVY60hRHRjTmp7qRcsSkonosy</td>*@
+
+                    <td>COMPANY</td>
+                    @*<td>Attivata da Lynfa</td>
+                        <td>04141414141</td>
+                        <td>9088</td>*@
+
+                    <td>ACTIVATED</td>
+                    <td>ACTIVATED</td>
+                </tr>
+
+            </tbody>
+
+
+
+
+        </table>
+
+    </div>
+
+
+
+    @*FINE TABELLA*@
+
+
+
+
+
+    @**********************************  PRIMO CONTAINER        *@
+
+    <div class="container1" id="container1">
+        <div class="row">
+            <div class="col-md-4-HUB">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Scheda Dettaglio Azienda: <input type="text" id="fname1" style="color:#ccff33" /></h3>
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Dettaglio Azienda</h3>
+                                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                                    </div>
+                                    <div class="panel-body">
+
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>id Azienda</td>
+                                                    <td><input type="text" id="fid" class="form-control" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Vat Number</td>
+                                                    <td><input type="text" id="fvar" class="form-control" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nome Azienda</td>
+                                                    <td><input style="width:100%; " type="text" id="fname" /></td>
+                                                </tr>
+                                                <tr></tr>
+                                                <tr>
+                                                    <td>Data Creazione</td>
+                                                    <td><input type="text" id="fdtcrea" class="form-control" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Data Ult. Mod.</td>
+                                                    <td><input type="text" id="fdtmod" class="form-control" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Company</td>
+                                                    <td><input type="text" id="fcomp" class="form-control" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Description</td>
+                                                    <td><input type="text" id="fdescr" class="form-control" /></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="panel panel-warning">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Elenco Device :<imput type="text" id="contaDev"></h3>
+                                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                                    </div>
+                                    <div class="panel-body">
+
+                                        <table cellpadding="8" id="myTable2" class="table-striped">
+                                            <tr>
+                                                <th>
+
+                                                </th>
+                                                @*<th>id</th>
+                                                    <th>created_date</th>
+                                                    <th>last_modified_date</th>
+                                                    <th>device_id</th>
+                                                    <th>name</th>
+                                                    <th>company_id</th>
+                                                    <th>activation_code</th>*@
+                                                <th>company_id</th>
+                                                <th>device_id</th>
+
+
+                                            </tr>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <button class="btnSelect" type="button"></button>
+                                                    </td>
+                                                    <td>794</td>
+                                                    <td>04141414141_1</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <button class="btnSelect" type="button"></button>
+                                                    </td>
+                                                    <td>794</td>
+                                                    <td>04141414141_2</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <button class="btnSelect" type="button"></button>
+                                                    </td>
+                                                    <td>707</td>
+                                                    <td>00698810256_1</td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="panel panel-warning">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Dipartimenti</h3>
+                                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                                    </div>
+                                    <div class="panel-body">
+
+                                        <table cellpadding="8" id="myTable3" class="table-striped">
+                                            <tr>
+
+                                                <th>company_id</th>
+                                                <th>description</th>
+
+
+                                            </tr>
+                                            @*@foreach (Dipartimento dipartimenti in Model.Dipartimenti)
+                                                {
+                                                    <tr>
+                                                        <td>@dipartimenti.company_id</td>
+                                                        <td>@dipartimenti.description</td>
+
+
+
+                                                    </tr>
+                                                }*@
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @********************************* RIGA LOG + S3*@
+
+                        <div class="row" id="Tab_LOG_device">
+
+                            <div class="col-md-4-HUB">
+
+                                <h4>Visualizzazione Device Log File HUB</h4>
+                                <p>
+                                    device n° <input id="device_id" type="text" />
+                                </p>
+
+                                <div class="tab">
+
+                                    <button class="tablinks" onclick="openCity2(event, 'Tipo 1')">Log Corrispettivi</button>
+                                    <button class="tablinks" onclick="openCity2(event, 'Tipo 2')">Log Configurazioni</button>
+
+                                    <button class="tablinks" onclick="openCity2(event, 'Tipo 3')">Log Fatture</button>
+                                    <button class="tablinks" onclick="openCity2(event, 'Tipo 4')">Log Prodotti</button>
+                                    <button class="tablinks" onclick="openCity2(event, 'Tipo 5')">Log Anagrafica</button>
+                                    <button class="tablinks" onclick="openCity2(event, 'Tipo 6')">Log Statitstiche</button>
+                                </div>
+
+                                <div id="Tipo 1" class="tabcontent">
+                                    <h3>Log Corrispettivi</h3>
+
+
+
+
+                                    <table cellpadding="8" id="myTableCorr" class="table-condensed" width="500">
+                                        <tr>
+                                            @*<th>id</th>*@
+                                            <th>created_date</th>
+                                            @*<th>last_modified_date</th>*@
+                                            <th>device_id</th>
+                                            <th>event_status</th>
+                                            @*<th>event_type</th>*@
+                                            <th>s3key</th>
+                                            @*<th>size</th>*@
+                                            @*<th>vat_number</th>*@
+                                            @*<th>s3timestam</th>*@
+
+
+                                        </tr>
+
+                                    </table>
+
+
+
+                                </div>
+
+                                <div id="Tipo 2" class="tabcontent">
+                                    <h3>Log Configurazioni</h3>
+
+                                    <table cellpadding="8" id="myTableConf" class="table-condensed" width="500">
+                                        <tr>
+                                            @*<th>id</th>*@
+                                            <th>created_date</th>
+                                            @*<th>last_modified_date</th>*@
+                                            <th>device_id</th>
+                                            <th>event_status</th>
+                                            @*<th>event_type</th>*@
+                                            <th>s3key</th>
+                                            @*<th>size</th>*@
+                                            @*<th>vat_number</th>*@
+                                            @*<th>s3timestam</th>*@
+
+
+                                        </tr>
+
+                                    </table>
+                                </div>
+
+                                <div id="Tipo 3" class="tabcontent">
+                                    <h3>Log Fatture</h3>
+                                    <table cellpadding="8" id="myTableFatt" class="table-condensed" width="500">
+                                        <tr>
+                                            @*<th>id</th>*@
+                                            <th>created_date</th>
+                                            @*<th>last_modified_date</th>*@
+                                            <th>device_id</th>
+                                            <th>event_status</th>
+                                            @*<th>event_type</th>*@
+                                            <th>s3key</th>
+                                            @*<th>size</th>*@
+                                            @*<th>vat_number</th>*@
+                                            @*<th>s3timestam</th>*@
+
+
+                                        </tr>
+
+                                    </table>
+                                </div>
+                                <div id="Tipo 4" class="tabcontent">
+                                    <h3>Log Prodotti</h3>
+                                    <table cellpadding="8" id="myTableProd" class="table-condensed" width="500">
+                                        <tr>
+                                            @*<th>id</th>*@
+                                            <th>created_date</th>
+                                            @*<th>last_modified_date</th>*@
+                                            <th>device_id</th>
+                                            <th>event_status</th>
+                                            @*<th>event_type</th>*@
+                                            <th>s3key</th>
+                                            @*<th>size</th>*@
+                                            @*<th>vat_number</th>*@
+                                            @*<th>s3timestam</th>*@
+
+
+                                        </tr>
+
+                                    </table>
+
+                                </div>
+
+                                <div id="Tipo 5" class="tabcontent">
+                                    <h3>Log Anagrafica</h3>
+                                    <table cellpadding="8" id="myTableAnag" class="table-condensed" width="500">
+                                        <tr>
+                                            @*<th>id</th>*@
+                                            <th>created_date</th>
+                                            @*<th>last_modified_date</th>*@
+                                            <th>device_id</th>
+                                            <th>event_status</th>
+                                            @*<th>event_type</th>*@
+                                            <th>s3key</th>
+                                            @*<th>size</th>*@
+                                            @*<th>vat_number</th>*@
+                                            @*<th>s3timestam</th>*@
+
+
+                                        </tr>
+
+                                    </table>
+
+                                </div>
+
+                                <div id="Tipo 6" class="tabcontent">
+                                    <h3>Log Statitstiche</h3>
+                                    <table cellpadding="8" id="myTableStat" class="table-condensed" width="500">
+                                        <tr>
+                                            @*<th>id</th>*@
+                                            <th>created_date</th>
+                                            @*<th>last_modified_date</th>*@
+                                            <th>device_id</th>
+                                            <th>event_status</th>
+                                            @*<th>event_type</th>*@
+                                            <th>s3key</th>
+                                            @*<th>size</th>*@
+                                            @*<th>vat_number</th>*@
+                                            @*<th>s3timestam</th>*@
+
+
+                                        </tr>
+
+                                    </table>
+
+                                </div>
+
+
+                                <script>
+                                    function openCity2(evt, cityName) {
+                                        var i, tabcontent, tablinks;
+                                        tabcontent = document.getElementsByClassName("tabcontent");
+                                        for (i = 0; i < tabcontent.length; i++) {
+                                            tabcontent[i].style.display = "none";
+                                        }
+                                        tablinks = document.getElementsByClassName("tablinks");
+                                        for (i = 0; i < tablinks.length; i++) {
+                                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                                        }
+                                        document.getElementById(cityName).style.display = "block";
+                                        evt.currentTarget.className += " active";
+                                    }
+                                </script>
+
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4-HUB">
+
+                                <h4>Visualizzazione file depositati su HUB</h4>
+                                <p>Click on the buttons inside the tabbed menu:</p>
+
+                                <div class="tab">
+                                    <button class="tablinks" onclick="openCity(event, 'Tipo 7')">Tipo 1</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Tipo 8')">Tipo 2</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Tipo 9')">Tipo 3</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Tipo 10')">Tipo 4</button>
+
+                                </div>
+
+                                <div id="Tipo 7" class="tabcontent">
+                                    <h3>file S3, da lynfa verso azienda</h3>
+                                    <p>Configurazione Azienda (folder configurazione_azienda)</p>
+
+                                    <div class="row">
+                                        <table cellpadding="8" id="myTable4" class="table-striped">
+                                            <tr>
+                                                <th>S3 File Name </th>
+                                                <th>Size</th>
+                                                <th>last_modified_date</th>
+
+                                            </tr>
+
+                                        </table>
+
+                                    </div>
+
+
+
+                                    <p>Logo Azienda (folder get_corrispettiv)</p>
+                                    <p>Anagrafica Clienti (folder send_anagrafica)</p>
+                                    <p>Prodotti (send_prodotti)</p>
+                                </div>
+
+                                <div id="Tipo 8" class="tabcontent">
+                                    <h3>file S3, da tablet verso lynfa</h3>
+                                    <p>Corrispettivi (folder get_corrispettivi)</p>
+                                    <p>Fatture (folder get_fatture)</p>
+                                </div>
+
+                                <div id="Tipo 9" class="tabcontent">
+                                    <h3>file S3, da tablet o da lynfa verso hub-stats</h3>
+                                    <p>Statistiche (folder retail_stats)</p>
+                                </div>
+                                <div id="Tipo 10" class="tabcontent">
+                                    <h3>Struttura su DB + file S3</h3>
+
+                                    <div class="row">
+                                        <table cellpadding="8" id="myTable4" class="table-striped">
+                                            <tr>
+                                                <th>id</th>
+                                                <th>created_date</th>
+                                                <th>last_modified_date</th>
+                                                <th>invoice_id</th>
+                                                <th>notes</th>
+                                                <th>vat_number</th>
+                                                <th>department_id</th>
+                                                <th>is_delivered</th>
+                                                <th>date</th>
+
+
+                                            </tr>
+
+                                        </table>
+
+                                    </div>
+
+                                    <p>
+                                        Fatture di Acquisto e relative immagini
+                                        La lista delle fatture e delle immagini sono sulla tabelle
+                                        app_purchase_invoice e sulla relativa app_invoice_image.
+                                        Le immagini vere e proprie sono su S3 (folder mobile)
+                                    </p>
+                                    <p>
+                                        Archivio di immagini (non prioritario)
+                                        C’è un riferimento sulla tabella image_archive. I file veri e propri
+                                        sono su S3 (folder image-archive).
+                                    </p>
+                                </div>
+
+                                <script>
+                                    function openCity(evt, cityName) {
+                                        var i, tabcontent, tablinks;
+                                        tabcontent = document.getElementsByClassName("tabcontent");
+                                        for (i = 0; i < tabcontent.length; i++) {
+                                            tabcontent[i].style.display = "none";
+                                        }
+                                        tablinks = document.getElementsByClassName("tablinks");
+                                        for (i = 0; i < tablinks.length; i++) {
+                                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                                        }
+                                        document.getElementById(cityName).style.display = "block";
+                                        evt.currentTarget.className += " active";
+                                    }
+                                </script>
+
+
+
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                        @********************************* FINE RIGA LOG + S3*@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*********************************** FINE PRIMO CONTAINER*@
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
