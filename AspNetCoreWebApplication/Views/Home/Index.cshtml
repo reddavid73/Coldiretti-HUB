@@ -18,6 +18,12 @@
 
 @*<body>*@
     <body onload="passWord();">
+
+    @*<CENTER>
+        <FORM>
+            <input type="button" value="Entra in Hub-Console" onClick="passWord()">
+        </FORM>
+    </CENTER>*@
     <SCRIPT>
         function passWord() {
             var testV = 1;
@@ -28,7 +34,7 @@
                 if (pass1.toLowerCase() === "testhub") {
                     //alert('Password corretta!');
                     //window.open('http://ec2-18-196-32-162.eu-central-1.compute.amazonaws.com/');
-      
+
                     break;
                 }
                 testV += 1;
@@ -39,11 +45,9 @@
             return " ";
         }
     </SCRIPT>
-    <CENTER>
-        <FORM>
-            <input type="button" value="Entra in Hub-Console" onClick="passWord()">
-        </FORM>
-    </CENTER>
+
+
+
     @*********************@
 
     @*<script type="text/javascript">
