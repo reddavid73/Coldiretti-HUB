@@ -17,13 +17,13 @@
 </head>
 
 @*<body>*@
-    <body visibility="hidden" onload="passWord();">
+<body style="visibility:hidden;"  onload="passWord();">
 
     @*<CENTER>
-        <FORM>
-            <input type="button" value="Entra in Hub-Console" onClick="passWord()">
-        </FORM>
-    </CENTER>*@
+            <FORM>
+                <input type="button" value="Entra in Hub-Console" onClick="passWord()">
+            </FORM>
+        </CENTER>*@
     <SCRIPT>
         function passWord() {
             var testV = 1;
@@ -35,7 +35,8 @@
                 if (pass1.toLowerCase() === "testhub") {
                     //alert('Password corretta!');
                     //window.open('http://ec2-18-196-32-162.eu-central-1.compute.amazonaws.com/');
-                     break;
+                    myFunctionPASSW();
+                    break;
                 }
                 testV += 1;
                 pass1 = prompt('Accesso negato – Password errata, riprova.', 'Password');
@@ -45,7 +46,12 @@
             return " ";
         }
     </SCRIPT>
-
+    <script>
+        function myFunctionPASSW() {
+            var x = document.getElementsByTagName("BODY")[0];
+            x.style.visibility = "visible";
+        }
+    </script>
 
 
     @*********************@
@@ -439,7 +445,7 @@
 
     @*TABELLA*@
     <div class="panel panel-primary">
-        <table style="visibility:hidden;" cellpadding="8" id="myTable">
+        <table cellpadding="8" id="myTable">
             <tr>
                 <th></th>
                 <th>id</th>
